@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUGO HUGO HEJ!!!!!!</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body class="grid-container">
+    <!-- Header -->
+    <header class="header">
+        <h1>Min Webbsida</h1>
+        <button class="menu-btn" id="menu-btn">☰</button>
+        <nav class="nav-links" id="nav-links">
+            <a href="#home">Hej</a>
+            <a href="#about">Hola</a>
+            <a href="#services">Hello</a>
+            <a href="#contact">Hallo</a>
+        </nav>
+    </header>
+
+    <!-- Huvudinnehåll -->
+    <main class="main">
+        <aside class="aside">Sidomeny 1</aside>
+        <section class="main1">Huvudinnehåll 1</section>
+        <section class="main1">Huvudinnehåll 2</section>
+        <aside class="aside1">Sidomeny 2</aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 - Min Webbsida</p>
+    </footer>
+
+    <!-- JavaScript för menyknapp -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>
