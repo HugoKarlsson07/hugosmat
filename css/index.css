@@ -8,17 +8,15 @@ body {
 .grid-container {
     display: grid;
     grid-template-areas:
-        'header header header header'
-        'aside main1 main1 aside2'
-        'aside main1 main1 aside2'
-        'aside main1 main1 aside2'
-        'footer footer footer footer';
+        'header'
+        'main'
+        'footer';
     grid-template-columns: 1fr;
     gap: 10px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.header {
+header {
     grid-area: header;
     background-color: orange;
     color: black;
@@ -33,44 +31,24 @@ h1 {
     margin: 0;
 }
 
-.main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 20px;
-    background-color: rgb(150, 130, 10);
-}
-.main1 {
-    color: white;
-    padding: 40px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: rgb(128, 0, 28);
+.nav-links {
+    display: flex;
+    gap: 15px;
 }
 
-.aside1 {
-    color: orange;
-    padding: 40px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: rgb(91, 85, 169);
-}
-.aside {
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
     color: black;
-    padding: 40px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: rgb(0, 87, 128);
-    
+    background: #ffd700;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
 }
 
-
-.footer {
-    grid-area: footer;
-    background-color: magenta;
+.nav-links a:hover {
+    background: #ffb300;
     color: white;
-    padding: 15px;
-    text-align: center;
 }
 
 .menu-btn {
@@ -81,24 +59,49 @@ h1 {
     display: none;
 }
 
-.nav-links {
-    display: flex;
-    gap: 15px;
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: rgb(150, 130, 10);
 }
 
-.nav-links a {
-    text-decoration: none;
-    padding: 10px 20px;
+.ingredienser,
+.instruktioner {
+    background-color: rgb(128, 0, 28);
     color: white;
-    background: #007BFF;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-.nav-links a:hover {
-    background: #0056b3;
+.recept-bild {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
-/* Mobilanpassning */
+.relaterade-recept {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.relaterade-recept img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: magenta;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
 @media (max-width: 767px) {
     .menu-btn {
         display: block;
@@ -124,10 +127,5 @@ h1 {
 
     .nav-links.show {
         display: flex;
-    }
-
-    .main {
-        display: flex;
-        flex-direction: column;
     }
 }
