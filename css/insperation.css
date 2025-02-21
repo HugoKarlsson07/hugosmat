@@ -27,13 +27,13 @@ body {
 /* ====== Header & Navigation ====== */
 header {
     grid-area: header;
-    background-color: orange;
-    color: black;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+        background-color: orange;
+        color: black;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
 }
 
 h1 {
@@ -87,8 +87,7 @@ h1 {
         right: 0;
         background: #ff5722;
         width: 100%;
-        max-width: 20vw;
-        /* Menyns maxbredd är 15% av viewport-bredden */
+        max-width: 20vw; /* Menyns maxbredd är 15% av viewport-bredden */
         text-align: center;
         padding: 10px;
         border-radius: 0 0 10px 10px;
