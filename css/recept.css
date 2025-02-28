@@ -76,6 +76,7 @@ footer {
 .nav-links {
     display: flex;
     gap: 15px;
+    z-index: 1000;
 }
 
 .nav-links a {
