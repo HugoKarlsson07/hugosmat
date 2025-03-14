@@ -135,7 +135,7 @@ main {
 /* ====== Footer ====== */
 footer {
     grid-area: footer;
-    background-color: magenta;
+    background-color: orange;
     color: white;
     padding: 15px;
     text-align: center;

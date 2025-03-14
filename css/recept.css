@@ -1,26 +1,25 @@
-/* ====== Grundläggande stil ====== */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* ====== Viewport meta tagga (för bättre responsivitet på mobil) ====== */
+
 @viewport {
     width: device-width;
     initial-scale: 1;
 }
 
-/* ====== Grundlayout för hela sidan ====== */
 header {
     grid-area: header;
-        background-color: orange;
-        color: black;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
+    background-color: orange;
+    color: black;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 h1 {
@@ -64,13 +63,6 @@ main {
     border-radius: 8px;
 }
 
-/* Footer */
-footer {
-    background-color: magenta;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
 
 
 .nav-links {
@@ -96,7 +88,7 @@ footer {
     transform: scale(1.05);
 }
 
-/* ====== Hamburgermeny ====== */
+
 .menu-btn {
     background: none;
     border: none;
@@ -142,7 +134,7 @@ footer {
     }
 }
 
-/* ====== Specifik design för iPhone 13 Pro Max och stora skärmar ====== */
+
 @media (max-width: 1284px) and (min-width: 800px) {
     header {
         padding: 20px 30px;
@@ -159,14 +151,7 @@ footer {
     .recept-bild {
         max-width: 600px;
     }
-
-    .relaterade-recept img {
-        width: 120px;
-        height: 120px;
-    }
 }
-
-/* ====== Animation för hamburgermenyn ====== */
 @keyframes slideDown {
     0% {
         opacity: 0;
@@ -177,4 +162,10 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+footer {
+    background-color: orange;
+    color: white;
+    padding: 15px;
+    text-align: center;
 }
