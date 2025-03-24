@@ -32,24 +32,31 @@ header {
     position: relative;
 }
 
-h1 {
+h1,h3,h2 {
     margin: 0;
     font-size: 24px;
+    text-align: center;
+}
+li,ul {
+    margin: 0;
+    font-size: 16px;
 }
 
 main {
-    padding: 20px;
-    background-color: rgb(150, 130, 10);
+    padding: 30px;
+    background-color: #ffe082;
+    text-align: justify;
 }
 
 /* Boxar för ingredienser och instruktioner */
 .ingredienser,
 .instruktioner {
-    background-color: rgb(128, 0, 28);
-    color: white;
+    background-color: bisque;
+    color: black;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 15px;
+    justify-content: center;
 }
 
 .recept-bild {
@@ -64,22 +71,15 @@ main {
 .relaterade-recept {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .relaterade-recept img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 160px;
     border-radius: 8px;
 }
 
-
-
-.nav-links {
-    display: flex;
-    gap: 15px;
-    z-index: 1000;
-}
 
 .nav-links a {
     text-decoration: none;
@@ -134,7 +134,7 @@ main {
         right: 0;
         background: bisque;
         width: 100%;
-        max-width: 20vw; /* Menyns maxbredd är 15% av viewport-bredden */
+        max-width: 30vw;
         text-align: center;
         padding: 10px;
         border-radius: 0 0 10px 10px;

@@ -3,14 +3,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    transition: background-color 0.3s, color 0.3s;
     background-color: #ffe082;
 }
 
-/* ====== Viewport meta tagga (för bättre responsivitet) ====== */
-@viewport {
-    width: device-width;
-    initial-scale: 1;
+.img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.recept-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* ====== Layout för hela sidan ====== */
@@ -75,7 +83,7 @@ h1 {
     display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .menu-btn {
         display: block;
     }
@@ -88,19 +96,17 @@ h1 {
         right: 0;
         background: bisque;
         width: 100%;
-        max-width: 20vw;
+        max-width: 30vw;
         text-align: center;
         padding: 10px;
         border-radius: 0 0 10px 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         animation: slideDown 0.3s ease-in-out;
+        z-index: 1000;
     }
-
     .nav-links a {
         display: block;
         padding: 15px;
-        text-decoration: none;
-        color: white;
         font-size: 18px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
@@ -113,8 +119,20 @@ h1 {
 /* ====== Huvudinnehåll ====== */
 main {
     grid-area: main;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    max-width: 800px;
+    background: bisque;
     padding: 20px;
-    background-color: #ffe082;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Receptkort */
@@ -130,7 +148,8 @@ main {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s;
@@ -138,12 +157,6 @@ main {
 
 .recept-card:hover {
     transform: scale(1.05);
-}
-
-.recept-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
 .recept-card h2 {
@@ -192,26 +205,71 @@ footer {
     }
 }
 
-/* ====== iPhone 13 Pro Max-specifik responsiv design ====== */
-@media (max-width: 1284px) and (min-width: 800px) {
-    header {
-        padding: 20px 30px;
+/* ====== Responsiv design för olika skärmar ====== */
+@media (max-width: 1024px) {
+    .grid-container {
+        gap: 5px;
     }
 
+    .section {
+        padding: 15px;
+    }
+
+    .recept-container {
+        gap: 15px;
+    }
+}
+
+/* För iPhone och andra små enheter (max-width: 480px) */
+@media (max-width: 480px) {
     h1 {
-        font-size: 28px;
+        font-size: 22px;
+        /* Mindre fontstorlek */
     }
 
     .nav-links a {
-        font-size: 20px;
+        font-size: 16px;
+        /* Minska storleken på menylänkar */
     }
 
-    .recept-bild {
-        max-width: 600px;
+    .recept-card {
+        max-width: 100%;
+        /* Gör korten fullbredd på små skärmar */
     }
 
-    .relaterade-recept img {
-        width: 120px;
-        height: 120px;
+    .recept-card img {
+        width: 100%;
+        /* Gör bilderna fullbredd på små enheter */
+        height: auto;
+        /* Låter höjden justeras proportionellt */
+        object-fit: cover;
+        /* Behåller rätt proportioner och fyller utrymmet */
+    }
+
+    .btn {
+        padding: 8px 16px;
+        /* Justera storleken på knapparna */
+    }
+
+    header {
+        padding: 15px 20px;
+        /* Justera padding för mindre utrymme */
+    }
+
+    .section {
+        max-width: 100%;
+        /* Se till att sektionerna tar upp hela bredden */
+        padding: 10px;
+        /* Justera padding */
+    }
+
+    .menu-btn {
+        font-size: 28px;
+        /* Mindre menyknapp för små skärmar */
+    }
+
+    .img {
+        max-width: 100%;
+        /* Gör bilderna fullbredd på små enheter */
     }
 }
