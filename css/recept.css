@@ -139,6 +139,7 @@ main {
     display: block;
     margin: 0 auto;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Relaterade recept */
