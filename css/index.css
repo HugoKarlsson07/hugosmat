@@ -7,13 +7,7 @@ body {
     background-color: #ffe082;
 }
 
-/* ====== Viewport meta tagga (för bättre responsivitet) ====== */
-@viewport {
-    width: device-width;
-    initial-scale: 1;
-}
-
-/* ====== Layout för hela sidan ====== */
+/* ====== Responsiv layout ====== */
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -25,10 +19,76 @@ body {
     min-height: 100vh;
 }
 
+.recept-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.recept-card {
+    background: blanchedalmond;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.recept-card:hover {
+    transform: scale(1.05);
+}
+
+.recept-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.recept-card h2 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.recept-card p {
+    padding: 0 15px;
+    color: black;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #ffcc00;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn:hover {
+    background: #ffb300;
+    color: black;
+}
+
+.header1 {
+    text-align: center;
+    background-color: #ffa500;
+    color: black;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
 /* ====== Header & Navigation ====== */
 header {
     grid-area: header;
-    background-color: orange;
+    background-color: #ffa500;
     color: black;
     padding: 20px 30px;
     display: flex;
@@ -39,7 +99,7 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 .nav-links {
@@ -56,7 +116,7 @@ h1 {
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 
 .nav-links a:hover {
@@ -69,13 +129,13 @@ h1 {
 .menu-btn {
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 1.875rem;
     color: white;
     cursor: pointer;
     display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .menu-btn {
         display: block;
     }
@@ -84,24 +144,24 @@ h1 {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 3.75rem;
         right: 0;
-        background: bisque;
+        background: #ffe4c4;
         width: 100%;
         max-width: 30vw;
         text-align: center;
-        padding: 10px;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        padding: 0.625rem;
+        border-radius: 0 0 0.625rem 0.625rem;
+        box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.2);
         animation: slideDown 0.3s ease-in-out;
     }
 
     .nav-links a {
         display: block;
-        padding: 15px;
+        padding: 0.9375rem;
         text-decoration: none;
         color: white;
-        font-size: 18px;
+        font-size: 1.125rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 
@@ -115,21 +175,6 @@ main {
     grid-area: main;
     padding: 20px;
     background-color: #ffe082;
-}
-
-.btn {
-    display: inline-block;
-    margin: 15px;
-    padding: 10px 20px;
-    background: #ffcc00;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background: #ffb300;
 }
 
 /* ====== Footer ====== */
@@ -150,29 +195,5 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* ====== iPhone 13 Pro Max-specifik responsiv design ====== */
-@media (max-width: 1284px) and (min-width: 800px) {
-    header {
-        padding: 20px 30px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .nav-links a {
-        font-size: 20px;
-    }
-
-    .recept-bild {
-        max-width: 600px;
-    }
-
-    .relaterade-recept img {
-        width: 120px;
-        height: 120px;
     }
 }
