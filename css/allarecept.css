@@ -1,9 +1,19 @@
+:root {
+    --primar: #6BBF59;
+    --sekundar: #FFF8E1;
+    --accent: darkgreen;
+    --text: #1A1A1A;
+    --bakgrund: #F5F5F5;
+    --kort-bakgrund: #F5F5F5;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #ffe082;
+    background-color: var(--sekundar);
+    color: var(--text);
 }
 
 @viewport {
@@ -11,21 +21,23 @@ body {
     initial-scale: 1;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        'header'
-        'main'
-        'footer';
-    grid-template-columns: 1fr;
-    gap: 0.625rem;
-    min-height: 100vh;
+@media (min-width: 1024px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header'
+            'main'
+            'footer';
+        grid-template-columns: 2fr;
+        gap: 0.625rem;
+        min-height: 100vh;
+    }
 }
 
 header {
     grid-area: header;
-    background-color: #ffa500;
-    color: #000000;
+    background-color: var(--primar);
+    color: white;
     padding: 1.25rem 1.875rem;
     display: flex;
     justify-content: space-between;
@@ -48,7 +60,7 @@ h1 {
     text-decoration: none;
     padding: 0.625rem 1.25rem;
     color: white;
-    background: #ffcc00;
+    background: var(--accent);
     border-radius: 0.3125rem;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
@@ -56,8 +68,8 @@ h1 {
 }
 
 .nav-links a:hover {
-    background: #ffb300;
-    color: black;
+    background: var(--primar);
+    color: white;
     transform: scale(1.05);
 }
 
@@ -81,7 +93,7 @@ h1 {
         position: absolute;
         top: 3.75rem;
         right: 0;
-        background: #ffe4c4;
+        background: var(--sekundar);
         width: 100%;
         max-width: 30vw;
         text-align: center;
@@ -95,9 +107,9 @@ h1 {
         display: block;
         padding: 0.9375rem;
         text-decoration: none;
-        color: white;
+        color: var(--text);
         font-size: 1.125rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
@@ -108,7 +120,7 @@ h1 {
 main {
     grid-area: main;
     padding: 1.25rem;
-    background-color: #ffe082;
+    background-color: var(--sekundar);
 }
 
 .recept-container {
@@ -120,7 +132,7 @@ main {
 }
 
 .recept-card {
-    background: blanchedalmond;
+    background: var(--kort-bakgrund);
     border-radius: 0.625rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     width: 18.75rem;
@@ -146,14 +158,14 @@ main {
 
 .recept-card p {
     padding: 0 0.9375rem;
-    color: black;
+    color: var(--text);
 }
 
 .btn {
     display: inline-block;
     margin: 0.9375rem;
     padding: 0.625rem 1.25rem;
-    background: #ffcc00;
+    background: var(--accent);
     text-decoration: none;
     border-radius: 0.3125rem;
     font-weight: bold;
@@ -161,13 +173,13 @@ main {
 }
 
 .btn:hover {
-    background: #ffb300;
-    color: black;
+    background: var(--primar);
+    color: white;
 }
 
 footer {
     grid-area: footer;
-    background-color: orange;
+    background-color: var(--primar);
     color: white;
     padding: 0.9375rem;
     text-align: center;

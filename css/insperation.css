@@ -1,9 +1,21 @@
+:root {
+    --primar: #6BBF59;
+    --sekundar: #FFF8E1;
+    --accent: darkgreen;
+    --text: #1A1A1A;
+    --bakgrund: #F5F5F5;
+    --kort-bakgrund: #FAEBD7;
+    /* motsvarande bisque */
+    --kort-skugga: rgba(0, 0, 0, 0.1);
+}
+
 /* ====== Grundläggande stil ====== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffe082;
+    background-color: var(--sekundar);
+    color: var(--text);
 }
 
 @viewport {
@@ -27,22 +39,24 @@ body {
 }
 
 /* ====== Layout för hela sidan ====== */
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        'header'
-        'main'
-        'footer';
-    grid-template-columns: 1fr;
-    gap: 0.625rem;
-    min-height: 100vh;
+@media (min-width: 1024px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header'
+            'main'
+            'footer';
+        grid-template-columns: 2fr;
+        gap: 0.625rem;
+        min-height: 100vh;
+    }
 }
 
 /* ====== Header & Navigation ====== */
 header {
     grid-area: header;
-    background-color: orange;
-    color: black;
+    background-color: var(--primar);
+    color: white;
     padding: 1.25rem 1.875rem;
     display: flex;
     justify-content: space-between;
@@ -65,7 +79,7 @@ h1 {
     text-decoration: none;
     padding: 0.625rem 1.25rem;
     color: white;
-    background: #ffcc00;
+    background: var(--accent);
     border-radius: 0.3125rem;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
@@ -73,8 +87,8 @@ h1 {
 }
 
 .nav-links a:hover {
-    background: #ffb300;
-    color: black;
+    background: var(--primar);
+    color: white;
     transform: scale(1.05);
 }
 
@@ -99,7 +113,7 @@ h1 {
         position: absolute;
         top: 3.75rem;
         right: 0;
-        background: bisque;
+        background: var(--kort-bakgrund);
         width: 100%;
         max-width: 30vw;
         text-align: center;
@@ -120,16 +134,14 @@ h1 {
     .nav-links.active {
         display: flex;
     }
+
     header {
         padding: 1.25rem 1.875rem;
-        
     }
 
     h1 {
         font-size: 1.75rem;
-       
     }
-
 }
 
 /* ====== Huvudinnehåll ====== */
@@ -143,15 +155,15 @@ main {
 
 .section {
     max-width: 50rem;
-    background: bisque;
+    background: var(--kort-bakgrund);
     padding: 1.25rem;
     margin-bottom: 1.25rem;
     border-radius: 0.625rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem var(--kort-skugga);
     text-align: center;
 }
 
-/* Receptkort */
+/* ====== Receptkort ====== */
 .recept-container {
     display: flex;
     flex-wrap: wrap;
@@ -163,7 +175,7 @@ main {
 .recept-card {
     background: white;
     border-radius: 0.625rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem var(--kort-skugga);
     width: 100%;
     max-width: 18.75rem;
     overflow: hidden;
@@ -189,7 +201,7 @@ main {
     display: inline-block;
     margin: 0.9375rem;
     padding: 0.625rem 1.25rem;
-    background: #ffcc00;
+    background: var(--accent);
     color: black;
     text-decoration: none;
     border-radius: 0.3125rem;
@@ -197,13 +209,14 @@ main {
 }
 
 .btn:hover {
-    background: #ffb300;
+    background: var(--primar);
+    color: white;
 }
 
 /* ====== Footer ====== */
 footer {
     grid-area: footer;
-    background-color: orange;
+    background-color: var(--primar);
     color: white;
     padding: 0.9375rem;
     text-align: center;
@@ -220,7 +233,6 @@ footer {
         transform: translateY(0);
     }
 }
-
 
 @media (max-width: 64rem) {
     .grid-container {
