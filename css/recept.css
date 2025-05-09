@@ -8,7 +8,7 @@
     --kort-skugga: rgba(0, 0, 0, 0.1);
 }
 
-/* ====== Grundläggande stil ====== */
+/* ====== Grundläggande stil (Mobile First) ====== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,21 +18,20 @@ body {
     color: var(--text);
 }
 
-/* ====== Layout för hela sidan ====== */
-@media (min-width: 1024px) {
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            'header'
-            'main'
-            'footer';
-        grid-template-columns: 2fr;
-        gap: 0.625rem;
-        min-height: 100vh;
-    }
+/* ====== Layout för hela sidan (Mobile First) ====== */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    grid-template-columns: 1fr;
+    /* Enkolumnslayout för små skärmar */
+    gap: 0.625rem;
+    min-height: 100vh;
 }
 
-/* ====== Header & Navigation ====== */
+/* ====== Header & Navigation (Mobile First) ====== */
 header {
     grid-area: header;
     background-color: var(--primar);
@@ -80,21 +79,17 @@ h2 {
     transform: scale(1.05);
 }
 
-/* ====== Hamburgermeny ====== */
+/* ====== Hamburgermeny (Mobile First) ====== */
 .menu-btn {
     background: none;
     border: none;
     font-size: 1.875rem;
     color: var(--sekundar);
     cursor: pointer;
-    display: none;
+    display: block;
 }
 
 @media (max-width: 767px) {
-    .menu-btn {
-        display: block;
-    }
-
     .nav-links {
         display: none;
         flex-direction: column;
@@ -125,7 +120,7 @@ h2 {
     }
 }
 
-/* ====== Huvudinnehåll ====== */
+/* ====== Huvudinnehåll (Mobile First) ====== */
 main {
     grid-area: main;
     padding: 1.875rem;
@@ -146,7 +141,7 @@ main {
 
 .recept-bild {
     width: 100%;
-    max-width: 31.25rem;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
     border-radius: 0.5rem;
@@ -170,7 +165,7 @@ main {
     transform: scale(1.05);
 }
 
-/* ====== Footer ====== */
+/* ====== Footer (Mobile First) ====== */
 footer {
     grid-area: footer;
     background-color: var(--primar);
@@ -192,8 +187,20 @@ footer {
     }
 }
 
-/* ====== Anpassning för iPhone 13 Pro Max ====== */
-@media (max-width: 1284px) and (min-width: 800px) {
+/* ====== Anpassning för större skärmar ====== */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
     header {
         padding: 1.25rem 1.875rem;
     }
@@ -205,5 +212,13 @@ footer {
     .relaterade-recept img {
         width: 7.5rem;
         height: 7.5rem;
+    }
+}
+
+/* ====== Anpassning för extra stora skärmar (ex. desktop) ====== */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 3fr;
+        /* En extra kolumn för större skärmar */
     }
 }

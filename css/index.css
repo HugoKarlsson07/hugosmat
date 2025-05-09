@@ -8,30 +8,119 @@
     --kort-skugga: rgba(0, 0, 0, 0.1);
 }
 
-/* ====== Grundläggande stil ====== */
+/* ====== Grundläggande stil (Mobile First) ====== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    transition: background-color 0.3s, color 0.3s;
     background-color: var(--sekundar);
     color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* ====== Responsiv layout ====== */
-@media (min-width: 1024px) {
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            'header'
-            'main'
-            'footer';
-        grid-template-columns: 2fr;
-        gap: 0.625rem;
-        min-height: 100vh;
+/* ====== Layout för hela sidan (Mobile First) ====== */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    grid-template-columns: 1fr;
+    /* Enkolumnslayout för små skärmar */
+    gap: 0.625rem;
+    min-height: 100vh;
+}
+
+/* ====== Header & Navigation (Mobile First) ====== */
+header {
+    grid-area: header;
+    background-color: var(--primar);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background: var(--accent);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+    background: var(--primar);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ====== Hamburgermeny (Mobile First) ====== */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.875rem;
+    color: white;
+    cursor: pointer;
+    display: block;
+    /* Menyknappen syns på små skärmar */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 3.75rem;
+        right: 0;
+        background: var(--sekundar);
+        width: 100%;
+        max-width: 30vw;
+        text-align: center;
+        padding: 0.625rem;
+        border-radius: 0 0 0.625rem 0.625rem;
+        box-shadow: 0 0.25rem 0.375rem var(--kort-skugga);
+        animation: slideDown 0.3s ease-in-out;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.9375rem;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 1.125rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 }
 
+/* ====== Huvudinnehåll (Mobile First) ====== */
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: var(--sekundar);
+}
+
+/* ====== Receptkort (Mobile First) ====== */
 .recept-container {
     display: flex;
     flex-wrap: wrap;
@@ -87,110 +176,7 @@ body {
     color: white;
 }
 
-.header1 {
-    text-align: center;
-    background-color: var(--primar);
-    color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-/* ====== Header & Navigation ====== */
-header {
-    grid-area: header;
-    background-color: var(--primar);
-    color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-h1 {
-    margin: 0;
-    font-size: 1.75rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 15px;
-    z-index: 1000;
-}
-
-.nav-links a {
-    text-decoration: none;
-    padding: 10px 20px;
-    color: white;
-    background: var(--accent);
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-    font-size: 1.2rem;
-}
-
-.nav-links a:hover {
-    background: var(--primar);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* ====== Hamburgermeny ====== */
-.menu-btn {
-    background: none;
-    border: none;
-    font-size: 1.875rem;
-    color: white;
-    cursor: pointer;
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 3.75rem;
-        right: 0;
-        background: var(--sekundar);
-        width: 100%;
-        max-width: 30vw;
-        text-align: center;
-        padding: 0.625rem;
-        border-radius: 0 0 0.625rem 0.625rem;
-        box-shadow: 0 0.25rem 0.375rem var(--kort-skugga);
-        animation: slideDown 0.3s ease-in-out;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.9375rem;
-        text-decoration: none;
-        color: var(--text);
-        font-size: 1.125rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
-
-/* ====== Huvudinnehåll ====== */
-main {
-    grid-area: main;
-    padding: 20px;
-    background-color: var(--sekundar);
-}
-
-/* ====== Footer ====== */
+/* ====== Footer (Mobile First) ====== */
 footer {
     grid-area: footer;
     background-color: var(--primar);
@@ -199,6 +185,7 @@ footer {
     text-align: center;
 }
 
+/* ====== Animation ====== */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -208,5 +195,45 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ====== Anpassning för större skärmar (Desktop) ====== */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 3fr;
+        /* Två kolumner på större skärmar */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu-btn {
+        display: none;
+        /* Dölj hamburgermenyn på större skärmar */
+    }
+
+    header {
+        padding: 20px 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .recept-container {
+        gap: 20%;
+        justify-content: flex-start;
+    }
+
+    .recept-card {
+        max-width: 28,125rem;
+        /* Justera storleken för större skärmar */
+    }
+
+    footer {
+        padding: 20px;
     }
 }
